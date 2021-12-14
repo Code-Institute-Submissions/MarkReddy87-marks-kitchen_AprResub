@@ -1,0 +1,1 @@
+web: gunicorn marks_kitchen.wsgi
