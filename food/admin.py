@@ -8,7 +8,7 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = ('party_name', 'booking_date', 'approved', 'created_on')
     search_fields = ['party_name', 'phone', 'booking_date']
     list_filter = ('approved', 'created_on')
-    actioins = ['approved_bookings']
+    actioins = ['approve_bookings']
 
     def approved_bookings(self, request, queryset):
         queryset.update(approved=True)
@@ -20,3 +20,6 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('title', 'name', 'created_on')
     search_fields = ['name', 'email', 'title']
     list_filter = ('email', 'name', 'created_on')
+
+    def approved_contact(self, request, queryset):
+        queryset.update(approved=True)

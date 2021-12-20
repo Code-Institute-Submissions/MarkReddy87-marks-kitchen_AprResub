@@ -17,15 +17,16 @@ class Booking (models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.party_name
+        return self.booking_date
 
 
 class Contact (models.Model):
     title = models.CharField(max_length=200, unique=True)
-    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment_by")
+    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="contact_from")
     email = models.EmailField()
     body = models.TextField()
     image = CloudinaryField('image', default='placeholder')
+    approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
