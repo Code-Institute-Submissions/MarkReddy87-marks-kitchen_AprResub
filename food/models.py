@@ -4,7 +4,8 @@ from cloudinary.models import CloudinaryField
 
 
 class Booking (models.Model):
-    party_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="booking_name")
+    party_name = models.CharField(max_length=20)
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_name", default=False)
     booking_date = models.DateField(blank=False, null=False)
     booking_time = models.TimeField(blank=False, null=False)
     num_of_guests = models.IntegerField()
@@ -17,7 +18,7 @@ class Booking (models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.booking_date
+        return self.party_name
 
 
 class Contact (models.Model):
