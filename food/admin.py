@@ -19,4 +19,4 @@ class ContactAdmin(admin.ModelAdmin):
 
     list_display = ('title', 'name', 'created_on')
     search_fields = ['name', 'email', 'title']
-    list_filter = ('email', 'name')
+    list_filter = ('email', 'name', 'created_on')
