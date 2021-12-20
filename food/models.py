@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 class Booking (models.Model):
     party_name = models.CharField(max_length=20)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_name", default=False)
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_name")
     booking_date = models.DateField(blank=False, null=False)
     booking_time = models.TimeField(blank=False, null=False)
     num_of_guests = models.IntegerField()
