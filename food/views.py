@@ -10,10 +10,8 @@ class ShowMenu(generic.ListView):
     queryset = HttpResponse
 
 
-# class ContactList(generic.ListView):
-#     model = Contact
-#     queryset = Contact.objects.order_by('created_on')
-#     template_name = 'contact.html'
-#     paginate_by = 5
-
-
+class ContactList(generic.ListView):
+    model = Contact
+    queryset = Contact.objects.order_by('created_on')
+    template_name = 'contact.html'
+    paginate_by = 5
