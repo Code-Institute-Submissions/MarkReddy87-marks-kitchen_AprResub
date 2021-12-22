@@ -64,6 +64,10 @@
   --bs-body-bg: #fff;
 }
 
+/* .image-container {
+  position: relative;
+} */
+
 *,
 *::before,
 *::after {
