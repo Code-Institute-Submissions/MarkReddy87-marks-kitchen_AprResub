@@ -1,5 +1,5 @@
-from .models import Contact, Booking
 from django import forms
+from .models import Contact, Booking
 
 
 class ContactForm(forms.ModelForm):
