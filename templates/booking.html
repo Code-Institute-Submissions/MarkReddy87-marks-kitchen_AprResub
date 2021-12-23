@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
 {% load crispy_forms_tags %}
 
 <main class="mb-4">
@@ -9,7 +10,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 {% if user.is_authenticated %}
-                <h3>To make a booking please fill out the form below<h3>
+                <h3>To make a booking please fill out the form below</h3>
                 <div class="my-5">
                     <form id="contactForm" method="post">
                         {{ booking_form | crispy }}
@@ -18,6 +19,15 @@
                         <button class="btn btn-primary text-uppercase disabled" id="submitButton"
                             type="submit">Send</button>
                     </form>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="col-md-8 mt-3 offset-md-2">
+
+                        <p>Welcome back to Mark's Kitchen. To Make a booking or leave a review, please
+                            log in. If you have
+                            not created an account yet, then sign up first.</p>
+                    </div>
                 </div>
                 {% endif %}
             </div>
@@ -38,7 +48,8 @@
                             <h2 class="card-title">Party Name: {{ booking.party_name }}</h2>
                             <p class="card-text">Table of: {{ booking.num_of_guests }}</p>
                             <hr />
-                            <p class="card-text text-muted h6">On {{ booking.booking_date }} @ {{ booking.booking_time }}</p>
+                            <p class="card-text text-muted h6">On {{ booking.booking_date }} @
+                                {{ booking.booking_time }}</p>
                         </div>
                     </div>
                 </div>
