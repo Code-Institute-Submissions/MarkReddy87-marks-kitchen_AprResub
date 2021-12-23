@@ -8,7 +8,15 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
+
+                {% if booked %}
+                <div class="alert alert-success" role="alert">
+                    Thank you, your Booking in awaiting approval!
+                </div>
+                {% else %}
+
                 {% if user.is_authenticated %}
+
                 <h3>To make a booking please fill out the form below</h3>
                 <div class="my-5">
                     <form method="post">
@@ -19,6 +27,7 @@
                             type="submit">Send</button>
                     </form>
                 </div>
+
                 {% else %}
                 <div class="row">
                     <div class="col-md-8 mt-3 offset-md-2">
@@ -28,6 +37,8 @@
                             not created an account yet, then sign up first.</p>
                     </div>
                 </div>
+                
+                {% endif %}
                 {% endif %}
             </div>
         </div>

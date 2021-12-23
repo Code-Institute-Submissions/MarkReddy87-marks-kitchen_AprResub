@@ -25,6 +25,25 @@ class ContactList(generic.ListView):
             request,
             'contact.html',
             {
+                "contacted": False,
+                "contact_form": ContactForm()
+            },
+        )
+
+    def post(self, request, *args, **kwargs):
+
+        contact_form = ContactForm(data=request.POST)
+
+        if contact_form.is_valid():
+            contact_form.save()
+        else:
+            contact_form = ContactForm()
+
+        return render(
+            request,
+            'contact.html',
+            {
+                "contacted": True,
                 "contact_form": ContactForm()
             },
         )
@@ -38,6 +57,25 @@ class BookingList(generic.ListView):
             request,
             'booking.html',
             {
+                "booked": False,
+                "booking_form": BookingForm()
+            },
+        )
+
+    def post(self, request, *args, **kwargs):
+
+        booking_form = BookingForm(data=request.POST)
+
+        if booking_form.is_valid():
+            booking_form.save()
+        else:
+            booking_form = BookingForm()
+
+        return render(
+            request,
+            'booking.html',
+            {
+                "booked": True,
                 "booking_form": BookingForm()
             },
         )
