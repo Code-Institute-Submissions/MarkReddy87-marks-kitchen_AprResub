@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse
 from django.views import generic, View
-from .models import Contact
+from .models import Contact, Booking
 from .forms import ContactForm
 
 
@@ -17,6 +17,11 @@ class ContactList(generic.ListView):
     template_name = 'contact.html'
     paginate_by = 6
 
+class BookingList(generic.ListView):
+    model = Booking
+    queryset = Booking.objects.filter(approved=True).order_by('created_on')
+    template_name = 'booking.html'
+    paginate_by = 6
 
 # class SendContact(View):
 #     form_class = ContactForm

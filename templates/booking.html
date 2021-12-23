@@ -2,6 +2,66 @@
 
 {% block content %}
 
-<h1>Book A Meal</h1>
-    
+{% load crispy_forms_tags %}
+
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                {% if user.is_authenticated %}
+                <p>To make a booking please fill out the form below</p>
+                <div class="my-5">
+                    <form id="contactForm" method="post">
+                        {{ booking_form | crispy }}
+                        {% csrf_token %}
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary text-uppercase disabled" id="submitButton"
+                            type="submit">Send</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Previous Bookings Column-->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for booking in booking_list %}
+                <div class="col-md-4">
+                    <div class="card-mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">Party Name: {{ booking.party_name }}</h2>
+                            <p class="card-text">Table of: {{ booking.num_of_guests }}</p>
+                            <hr />
+                            <p class="card-text text-muted h6">On {{ booking.booking_date }} @ {{ booking.booking_time }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> &laquo; PREV</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
 {% endblock %}
