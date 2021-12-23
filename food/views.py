@@ -17,13 +17,12 @@ class ContactList(generic.ListView):
     template_name = 'contact.html'
     paginate_by = 6
 
+    # add contact fom view here
+
 class BookingList(generic.ListView):
     model = Booking
     queryset = Booking.objects.filter(approved=True).order_by('created_on')
     template_name = 'booking.html'
     paginate_by = 6
 
-# class SendContact(View):
-#     form_class = ContactForm
-#     model = Contact
-#     template_name = 'contact.html'
+    # add booking form view here

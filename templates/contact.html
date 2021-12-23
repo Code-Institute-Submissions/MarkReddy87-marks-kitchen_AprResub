@@ -4,6 +4,29 @@
 
 {% load crispy_forms_tags %}
 
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                {% if user.is_authenticated %}
+                <h3>Did you have a good time? Please fill out the form below to post a review to our site for everyone to
+                    see!!</h3>
+                <p>Posting as: {{ user.name }}</p>
+                <div class="my-5">
+                    <form id="contactForm" method="post">
+                        {{ contact_form | crispy }}
+                        {% csrf_token %}
+                        <!-- Submit Button-->
+                        <button class="btn btn-primary text-uppercase disabled" id="submitButton"
+                            type="submit">Send</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+
 <div class="container-fluid">
     <div class="row">
 
@@ -49,30 +72,5 @@
     </nav>
     {% endif %}
 </div>
-
-
-
-<main class="mb-4">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                {% if user.is_authenticated %}
-                <p>Did you have a good time? Please fill out the form below to post a review to our site for everyone to
-                    see!!</p>
-                <p>Posting as: {{ user.name }}</p>
-                <div class="my-5">
-                    <form id="contactForm" method="post">
-                        {{ contact_form | crispy }}
-                        {% csrf_token %}
-                        <!-- Submit Button-->
-                        <button class="btn btn-primary text-uppercase disabled" id="submitButton"
-                            type="submit">Send</button>
-                    </form>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</main>
 
 {% endblock %}
