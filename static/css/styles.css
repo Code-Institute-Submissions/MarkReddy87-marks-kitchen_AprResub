@@ -64,9 +64,15 @@
   --bs-body-bg: #fff;
 }
 
-/* .image-container {
+.image-container {
   position: relative;
-} */
+}
+
+.author {
+  color: #F2A366;
+  margin: 4px;
+  text-transform: uppercase;
+}
 
 *,
 *::before,
