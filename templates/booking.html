@@ -23,8 +23,7 @@
                         {{ booking_form | crispy }}
                         {% csrf_token %}
                         <!-- Submit Button-->
-                        <button class="btn btn-primary text-uppercase" id="submitButton"
-                            type="submit">Send</button>
+                        <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
                     </form>
                 </div>
 
@@ -32,12 +31,11 @@
                 <div class="row">
                     <div class="col-md-8 mt-3 offset-md-2">
 
-                        <p>Welcome back to Mark's Kitchen. To Make a booking or leave a review, please
-                            log in. If you have
-                            not created an account yet, then sign up first.</p>
+                        <h3>To Make a booking, please log in. If you have not created an account yet,
+                            then register first.</h3>
                     </div>
                 </div>
-                
+
                 {% endif %}
                 {% endif %}
             </div>
