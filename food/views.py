@@ -14,7 +14,7 @@ class ShowContacts(generic.ListView):
     model = Contact
     queryset = Contact.objects.filter(approved=True).order_by('created_on')
     template_name = 'review.html'
-    paginate_by = 9
+    paginate_by = 6
 
 
 class ContactList(generic.ListView):
