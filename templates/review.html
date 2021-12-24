@@ -13,7 +13,8 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in contact.image.url %}
-                                <img class="card-image-top" src="/static/assets/img/review.jpg">
+                                <img class="card-image-top"
+                                    src="https://cdn.pixabay.com/photo/2020/09/09/07/20/review-5556833_1280.jpg">
                                 {% else %}
                                 <img class="card-image-top" src="{{ contact.image.url }}">
                                 {% endif %}
