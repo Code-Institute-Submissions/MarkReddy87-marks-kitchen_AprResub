@@ -10,4 +10,5 @@ urlpatterns = [
     path('contact.html', views.ContactList.as_view(), name='contact'),
     path('booking.html', views.BookingList.as_view(), name='booking'),
     path('review.html', views.ShowContacts.as_view(), name='review'),
+    path('viewbooking.html', views.ShowBookings.as_view(), name='showbooking'),
 ]
