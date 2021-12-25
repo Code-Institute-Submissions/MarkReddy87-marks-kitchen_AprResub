@@ -13,10 +13,10 @@
                         <div class="card-body">
                             <div>
                                 {% if "placeholder" in contact.image.url %}
-                                <img class="card-image-top img-fluid"
+                                <img class="card-image-top img-fluid rounded"
                                     src="https://cdn.pixabay.com/photo/2020/09/09/07/20/review-5556833_1280.jpg">
                                 {% else %}
-                                <img class="card-image-top img-fluid" src="{{ contact.image.url }}">
+                                <img class="card-image-top img-fluid rounded" src="{{ contact.image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ contact.name }}</p>
