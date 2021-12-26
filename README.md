@@ -76,27 +76,71 @@ Another feature I would like to add would be a page consisting of a payment syst
 
 For this site I chose to use a bootstrap theme called "clean blog" which was downloaded from the [Start Bootstrap](https://startbootstrap.com/) website. This theme added such value to the site asthetics on so many levels. I wanted a very sleek but simple design which was also very responsive and intuative at the same time and I feel this theme did it all. I modified the html code in theme from its original state and used custom images and CSS to make it my own but the theme helped getting the navigation bar and the footer to look the way I wanted it to. 
 
-I chose to use simple and contrasting colors which I think helps the sites readability and promotes a positive user response. The teo [Google Fonts](https://fonts.google.com/) I used which I thought paired well together were Lato and Open Sans.
+I chose to use simple and contrasting colors which I think helps the sites readability and promotes a positive user response. The two [Google Fonts](https://fonts.google.com/) I used which I thought paired well together were Lato and Open Sans.
 
 ## 6. Wireframes
 
-
+For this project I hand drew a wireframe for the home page and because I wanted the site to be consistant across all the site pages I was able to apply this model to all the pages and insert the different elements as needed. After finding the bootsteap theme which almost matched my idea exactly I was able to make my base twmplate and extend it to the rest of the site and was very pleased with the result.
 
 ## 7. Technology
 
-
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+* [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+* [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL)
 
 ## 8. testing
-   8.1 code validation
-   8.2 test cases (user story based with screenshots)
-   8.3 fixed bugs
-   8.4 supported screens and browsers
+
+   ### 8.1 code validation
+
+   * HTML - No fatal erros were returned when HTML code was passed through the official [W£C Validator](https://validator.w3.org/#validate_by_input)
+   * CSS - No errors were returned when the CSS code was passed through the official [Jigsaw Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+   * Python - No errors were returned when the Python code was passed through the [Python Syntax Chacker](https://extendsclass.com/python-tester.html)
+
+   Extensive manual testing was done on the finished site to make sure that the data entered into the forms was save correctly to the database and when the data had been approved by the site admin it was then properly displayed on the relevant pages within the site. 
+
+   ### 8.2 fixed bugs
+
+   I came across a number of bugs during the development of this site. One particular case was when I was trying to display the images attached to the user reviews. After building the bootstrap cards to contain each review the images would display too large and were not contained within the cards themselves. After reviewing the bootstrap documentation relating to images I was able to apply the correct class (img-fluid) to the appropriate div elements to solve this issue.
+   Another bug I had to tackle was only allowing registered users who were logged in to have access to the sites forms. After reviewing the relevant course content I was able to insert and if/else clause within the html template with an accompanying message prompting the user to sign in / register to gain full access to the site capabilities.
+
+   ### 8.3 supported screens and browsers
+
+   The site was developed and tested with the Goggle Chrome browser.
+   The bootstrap theme used in this site included media queries in the CSS file which makes the site fully responsive on all screen sizes by stacking elements on smaller screen widths as well as adding a dropdown menu within the navagation bar to hold all the relevant page links.
 
 
 ## 9. Deployment
-   9.1 via gitpod
-   9.2 via heroku
 
+### 9.1 via gitpod
 
+This project was built entirely using [Github](https://github.com/) and [Gitpod](https://gitpod.io/).
+* First I created a repository in my GitHub account and named it appropriately.
+* Then I was able to create a GitPod workspace which included the Code Institute template where I was able to write and save all my code progress.
+
+### 9.2 via heroku
+
+This project was deployed as a Python based Django applcation on the Heroku cloud platform.
+*  Firstly a new app was created on the Heroku site and named appropriately.
+* Once the required packages were installed with the Gitpod workspace and added to the requirements.txt file I could then apply the correct settings to my Heroku app.
+* Within the setting tab three different Config Vars were required: Cloudinary for hosting images, Postgres database for hosting all site data and the Secret Key url to hide any sensitive data in my workspace.
+* The Gunicorn dyno was then added as well as the Heroku Postgres add-on.
+* Once all these steps were done the we can then head to the deploy tab and link the respective GitHub repository to the app and now the project is ready to be built and deployed from the main Github branch.
 
 ## 10. credits
+
+* [Code Institute](https://codeinstitute.net/) for related course materail, tutor assistance and mentoring sessions.
+* [Stack Overflow](https://stackoverflow.com/) for queries on code syntax.
+* [w3schools](https://www.w3schools.com/) for further queries on code syntax.
+* [GitHub](https://github.com/) for creating project repository.
+* [Gitpod](https://gitpod.io/workspaces) for building the project in a workspace.
+* [Heroku](https://heroku.com/) for deployinig the completed project.
+* [PEP8](http://pep8online.com/) for validating all code within the project.
+* [Slack](https://slack.com/) for help with deployment issues.
+* [Start Bootstrap](https://startbootstrap.com/) for the bootstrap theme / template.
+* [Google Fonts](https://fonts.google.com/) for the fonts used across the site.
+* [Adobe Color](https://color.adobe.com/create/color-wheel) for picking colors for the site
+* [Java T Point](https://www.javatpoint.com/) for code tutorials
+* [Pixabay](https://pixabay.com/) for site inmages
