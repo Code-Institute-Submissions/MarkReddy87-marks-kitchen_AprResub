@@ -91,7 +91,7 @@ For this project I hand drew a wireframe for the home page and because I wanted 
 * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
 * [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL)
 
-## 8. testing
+## 8. Testing
 
    ### 8.1 code validation
 
@@ -129,7 +129,7 @@ This project was deployed as a Python based Django applcation on the Heroku clou
 * The Gunicorn dyno was then added as well as the Heroku Postgres add-on.
 * Once all these steps were done the we can then head to the deploy tab and link the respective GitHub repository to the app and now the project is ready to be built and deployed from the main Github branch.
 
-## 10. credits
+## 10. Credits
 
 * [Code Institute](https://codeinstitute.net/) for related course materail, tutor assistance and mentoring sessions.
 * [Stack Overflow](https://stackoverflow.com/) for queries on code syntax.
