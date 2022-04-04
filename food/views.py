@@ -57,16 +57,16 @@ class ContactList(generic.ListView):
 class BookingList(generic.ListView):
     """ BookingList view """
 
-    # def get(self, request):
+    def get(self, request):
 
-    #     return render(
-    #         request,
-    #         'booking.html',
-    #         {
-    #             "booked": False,
-    #             "booking_form": BookingForm()
-    #         },
-    #     )
+        return render(
+            request,
+            'booking.html',
+            {
+                "booked": False,
+                "booking_form": BookingForm()
+            },
+        )
 
     def post(self, request):
         """ Post request function """
