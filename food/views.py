@@ -1,3 +1,4 @@
+""" relevant imports below """
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
@@ -6,11 +7,13 @@ from .forms import ContactForm, BookingForm
 
 
 class ShowMenu(generic.ListView):
+    """ ShowMenu view """
     template_name = 'index.html'
     queryset = HttpResponse
 
 
 class ShowContacts(generic.ListView):
+    """ ShowContact view """
     model = Contact
     queryset = Contact.objects.filter(approved=True).order_by('created_on')
     template_name = 'review.html'
@@ -18,6 +21,7 @@ class ShowContacts(generic.ListView):
 
 
 class ContactList(generic.ListView):
+    """ ContactList view """
 
     def get(self, request, *args, **kwargs):
 
@@ -31,6 +35,7 @@ class ContactList(generic.ListView):
         )
 
     def post(self, request):
+        """ Post request function """
 
         contact_form = ContactForm(data=request.POST)
 
@@ -50,19 +55,21 @@ class ContactList(generic.ListView):
 
 
 class BookingList(generic.ListView):
+    """ BookingList view """
 
-    def get(self, request):
+    # def get(self, request):
 
-        return render(
-            request,
-            'booking.html',
-            {
-                "booked": False,
-                "booking_form": BookingForm()
-            },
-        )
+    #     return render(
+    #         request,
+    #         'booking.html',
+    #         {
+    #             "booked": False,
+    #             "booking_form": BookingForm()
+    #         },
+    #     )
 
     def post(self, request):
+        """ Post request function """
 
         booking_form = BookingForm(data=request.POST)
 

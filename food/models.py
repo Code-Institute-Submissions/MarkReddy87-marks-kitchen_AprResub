@@ -1,11 +1,14 @@
+""" Relevant imports below """
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
 class Booking (models.Model):
+    """ Registering Booking model """
     party_name = models.CharField(max_length=20)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_name")
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE,
+                                  related_name="user_name")
     booking_date = models.DateField(blank=False, null=False)
     booking_time = models.TimeField(blank=False, null=False)
     num_of_guests = models.IntegerField()
@@ -15,6 +18,7 @@ class Booking (models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        """ Meta class for ordering """
         ordering = ['-created_on']
 
     def __str__(self):
@@ -22,8 +26,10 @@ class Booking (models.Model):
 
 
 class Contact (models.Model):
+    """ Registering Contact model """
     title = models.CharField(max_length=200, unique=True)
-    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="contact_from")
+    name = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name="contact_from")
     email = models.EmailField()
     body = models.TextField()
     image = CloudinaryField('image', default='placeholder')
@@ -31,6 +37,7 @@ class Contact (models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        """ Meta class for ordering """
         ordering = ['-created_on']
 
     def __str__(self):
