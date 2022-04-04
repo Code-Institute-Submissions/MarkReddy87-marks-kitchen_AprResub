@@ -80,7 +80,9 @@ I chose to use simple and contrasting colors which I think helps the sites reada
 
 ## 6. Wireframes
 
-For this project I hand drew a wireframe for the home page and because I wanted the site to be consistant across all the site pages I was able to apply this model to all the pages and insert the different elements as needed. After finding the bootsteap theme which almost matched my idea exactly I was able to make my base twmplate and extend it to the rest of the site and was very pleased with the result.
+[Link to Project Wireframes](https://balsamiq.cloud/s1wvfc3/p8hftjs/r1F97).
+
+I found using Balsamiq wireframes very beneficial. This is a great tool to use during the project inception. It allows the user to plan out every page you want to create with great detail and with the variety elements to choose from I feel it can inspire you to come up with new ideas. After creating my wireframes I found myself using them as a constant reference during the coding process.
 
 ## 7. Technology
 
