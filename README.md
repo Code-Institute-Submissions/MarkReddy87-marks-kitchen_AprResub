@@ -22,6 +22,8 @@ As a site user I can make a booking for one or more people so that I can reserve
 
 ## 3. Features
 
+### 3.1 Main Site Features
+
 This project is a multi-page Django app. The home page has an eye catching feature image containing a welcome message as well as a sleek responsive navagation bar which is consistant across all pages. The landing page also contains the restaurants full menu for all site visitors to see.
 
 ![home page screenshot](static/assets/screenshots/homepage-navbar.PNG)
@@ -61,6 +63,12 @@ The site also has fully responsive footer containing all the social media links,
 Finally the user can sign out of their account from the navigation bar if they wish to do so and will be prompted with a message asking them to confirm. Once confirmed the user is then redirected back to the home page.
 
 ![sign out screenshot](static/assets/screenshots/signout.PNG)
+
+### 3.2 Security Features
+
+One of the main security features present in this project is the use of the Cross-Site Request Forgery(csrf) token which is present on all forms across the site. This token is used to send requests to the server and is tied to the user's session allowing the forms to be validated and protect the data against cross-site request forgery.
+
+Another security feature present in this project is the use of a django super user. This is created in the development enviornment with a Username, Email and Password. We type the command "python3 manage.py createsuperuser" into the terminal within the GitHub workspace and follow the prompts to create the account. Once created this gives the user full access to the admin panel of the site allowing them to create, edit and delete data in the database.
 
 
 ## 4. Future Features
@@ -106,6 +114,7 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    1. Firstly once the app was successfully deployed to heroku I began the resistration process and set up a new account by clicking the register button in the top left of the screen and entering the required information in the form shown on screen. Once registered the user is then redirected to the home page as expected.
    2. Now that I was logged in as a registered user I had full access to all the sites capabilities and would be able to leave a review and make a booking request. Upon clicking the write a review link at the top of the page I could access the review form where I could enter the relevant details and an accompanying picture if chose too. To ensure all the code was working as expected I created two reviews, one with a picture attached and one without. I then logged into the sites admin where I could access the two recent reviews and approve / update each of them. Then back on the site I could navigate to the "see our reviews" page where the two reviews were now shown and I was able to see that the placeholder image was in fact working and present.
    3. Next I tested the booking form. Navigating to the "make a booking" tab shows the booking form where the logged in user can now fill out the required information to make a booking request. While filling this out I noticed a issue with the username field where all the registered users appeared in the dropdown menu and could be accessed by any logged in user. This issue needed to be addressed as this is considered a breach of defensive design. After this issue was removed a user could then submit the form for admin approval and once the button was clicked there were presented with a success message letting them know their form entry was a success. Now navigating to the site admin I could see that the booking had been created and as the site owner I could now approve the booking and contact the customer. 
+   4. 
 
    ### 8.2 fixed bugs
 
