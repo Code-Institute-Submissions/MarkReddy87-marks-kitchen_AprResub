@@ -3,7 +3,7 @@
 [Please see my live app here!](https://marks-kitchen.herokuapp.com/)
 
 ## 1. Purpose of the project
-The purpose of this project was to design a website which allowed a user to register for an account, book a meal in a restaurant on a particular date at a particular time and allow all users to post reviews that could be seen by all visitors of the site.
+The purpose of this project was to design a website for a new up and coming restaurant (Mark's Kitchen) who wanted to maximise their potential reach by promoting their retaurant online so it would be visible to as many potential customers as possible. This site would also allowed a user, who is registered for an account, to post a review of their experience at the location for all site visitors to see. This site would also allow a registered user to make a booking request directly to the site owner via a form submission which would then be stored in the sites database where it would await approval. The site also gives the owner the ability to show off the restaurant's menu in all it glory as well as the ability be easily update and change the dishes / contents as they evolve over time. 
 
 This project was my first time developing with the Django framework and was a huge undertaking for me, grasping the basic concepts was something that didn't come easy and I still have a lot more to learn on my Django journey.
 
