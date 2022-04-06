@@ -22,6 +22,7 @@
                         {% csrf_token %}
                         <!-- Edit Button-->
                         <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Save Changes</button>
+                        <a class="btn btn-primary text-uppercase" href="{% url 'review' %}">Cancel</a>
                     </form>
                 </div>
                 {% endif %}
