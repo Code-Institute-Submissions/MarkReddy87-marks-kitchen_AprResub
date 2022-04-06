@@ -12,4 +12,6 @@ urlpatterns = [
     path('contact.html', views.ContactList.as_view(), name='contact'),
     path('booking.html', views.BookingList.as_view(), name='booking'),
     path('review.html', views.ShowContacts.as_view(), name='review'),
+    path('review/<int:pk>', views.ReviewDetail.as_view(),
+         name='review_detail'),
 ]

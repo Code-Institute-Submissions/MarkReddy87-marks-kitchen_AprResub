@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-6">
+        <div class="col-8">
             <div class="card-m-4">
                 <div class="card-body">
                     <div>
@@ -27,7 +27,13 @@
                 <div class="card-footer">
                     <a class="btn btn-primary text-uppercase" href="#">Edit Review</a>
                     <a class="btn btn-primary text-uppercase" href="#">Delete Review</a>
+                    <a class="btn btn-primary text-uppercase" href="{% url 'review' %}">Back to Reviews</a>
                 </div>
+                {% else %}
+                <div class="card-footer">
+                    <a class="btn btn-primary text-uppercase" href="{% url 'review' %}">Back to Reviews</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

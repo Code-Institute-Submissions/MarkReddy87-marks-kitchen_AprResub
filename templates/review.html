@@ -9,26 +9,26 @@
             <div class="row">
                 {% for contact in contact_list %}
                 <div class="col-md-4">
-                    <div class="card-mb-4">
-                        <div class="card-body">
-                            <div>
-                                {% if "placeholder" in contact.image.url %}
-                                <img class="card-image-top img-fluid rounded"
-                                    src="https://cdn.pixabay.com/photo/2020/09/09/07/20/review-5556833_1280.jpg">
-                                {% else %}
-                                <img class="card-image-top img-fluid rounded" src="{{ contact.image.url }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ contact.name }}</p>
+                    <a href="{% url 'review_detail' contact.pk %}" class="contact-link">
+                        <div class="card-mb-4">
+                            <div class="card-body">
+                                <div>
+                                    {% if "placeholder" in contact.image.url %}
+                                    <img class="card-image-top img-fluid rounded"
+                                        src="https://cdn.pixabay.com/photo/2020/09/09/07/20/review-5556833_1280.jpg">
+                                    {% else %}
+                                    <img class="card-image-top img-fluid rounded" src="{{ contact.image.url }}">
+                                    {% endif %}
+                                    <div class="image-flash">
+                                        <p class="author">Author: {{ contact.name }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <a href="#" class="contact-link">
                                 <h2 class="card-title">{{ contact.title }}</h2>
-                            </a>
-                            <hr/>
-                            <p class="card-text text-muted h6">{{ contact.created_on }}</p>
+                                <hr />
+                                <p class="card-text text-muted h6">{{ contact.created_on }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
             </div>

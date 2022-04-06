@@ -12,6 +12,12 @@ class ShowMenu(generic.ListView):
     queryset = HttpResponse
 
 
+class ReviewDetail(generic.DetailView):
+    """ ReviewDetail view """
+    model = Contact
+    template_name = 'review_detail.html'
+
+
 class ShowContacts(generic.ListView):
     """ ShowContact view """
     model = Contact
