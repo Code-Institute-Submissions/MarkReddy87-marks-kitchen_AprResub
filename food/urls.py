@@ -14,4 +14,6 @@ urlpatterns = [
     path('review.html', views.ShowContacts.as_view(), name='review'),
     path('review/<int:pk>', views.ReviewDetail.as_view(),
          name='review_detail'),
+    path('review/edit/<int:pk>', views.EditContact.as_view(),
+         name='edit_contact'),
 ]

@@ -18,6 +18,41 @@ class ReviewDetail(generic.DetailView):
     template_name = 'review_detail.html'
 
 
+class EditContact(generic.ListView):
+    """ EditContact view """
+    # model = Contact
+    # template_name = 'edit_contact.html'
+    def get(self, request, *args, **kwargs):
+
+        return render(
+            request,
+            'edit_contact.html',
+            {
+                "contacted": False,
+                "contact_form": ContactForm()
+            },
+        )
+
+    def post(self, request, pk):
+        """ Post request function """
+
+        contact_form = ContactForm(data=request.POST)
+
+        if contact_form.is_valid():
+            contact_form.save()
+        else:
+            contact_form = ContactForm()
+
+        return render(
+            request,
+            'edit_contact.html',
+            {
+                "contacted": True,
+                "contact_form": ContactForm()
+            },
+        )
+
+
 class ShowContacts(generic.ListView):
     """ ShowContact view """
     model = Contact

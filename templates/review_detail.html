@@ -25,7 +25,7 @@
                 </div>
                 {% if user.is_authenticated and user == contact.name %}
                 <div class="card-footer">
-                    <a class="btn btn-primary text-uppercase" href="#">Edit Review</a>
+                    <a class="btn btn-primary text-uppercase" href="{% url 'edit_contact' contact.pk %}">Edit Review</a>
                     <a class="btn btn-primary text-uppercase" href="#">Delete Review</a>
                     <a class="btn btn-primary text-uppercase" href="{% url 'review' %}">Back to Reviews</a>
                 </div>
