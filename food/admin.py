@@ -10,9 +10,9 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = ('party_name', 'booking_date', 'approved', 'created_on')
     search_fields = ['party_name', 'phone', 'booking_date']
     list_filter = ('approved', 'created_on')
-    actioins = ['approve_bookings']
+    actions = ['approve_bookings']
 
-    def approved_bookings(self, request, queryset):
+    def approve_bookings(self, request, queryset):
         """ Setting queryset for approved checkbox """
         queryset.update(approved=True)
 
@@ -21,10 +21,13 @@ class BookingAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     """ Setting up contact admin panel """
 
-    list_display = ('title', 'name', 'approved', 'created_on')
+    prepopulated_fields = {'slug': ('title',)}
+
+    list_display = ('title', 'name', 'approved', 'slug', 'created_on')
     search_fields = ['name', 'email', 'title']
     list_filter = ('email', 'name', 'created_on')
+    actions = ['approve_contacts']
 
-    def approved_contact(self, request, queryset):
+    def approve_contacts(self, request, queryset):
         """ Setting queryset for approved checkbox """
         queryset.update(approved=True)
