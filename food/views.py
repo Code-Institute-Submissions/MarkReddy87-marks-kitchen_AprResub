@@ -1,5 +1,5 @@
 """ relevant imports below """
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic
 from .models import Contact
@@ -20,9 +20,10 @@ class ReviewDetail(generic.DetailView):
 
 class EditContact(generic.ListView):
     """ EditContact view """
-    # model = Contact
-    # template_name = 'edit_contact.html'
     def get(self, request, *args, **kwargs):
+
+        # contact = get_object_or_404(Contact, id=)
+
 
         return render(
             request,
@@ -33,7 +34,7 @@ class EditContact(generic.ListView):
             },
         )
 
-    def post(self, request, pk):
+    def post(self, request, id):
         """ Post request function """
 
         contact_form = ContactForm(data=request.POST)

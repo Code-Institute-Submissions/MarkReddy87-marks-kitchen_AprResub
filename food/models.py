@@ -28,6 +28,7 @@ class Booking (models.Model):
 class Contact (models.Model):
     """ Registering Contact model """
     title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     name = models.ForeignKey(User, on_delete=models.CASCADE,
                              related_name="contact_from")
     email = models.EmailField()
