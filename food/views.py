@@ -35,26 +35,28 @@ class ReviewDetail(View):
         )
 
 
-class EditContact(generic.ListView):
-    """ EditContact view """
-    def get(self, request, *args, **kwargs):
-
-        # contact = get_object_or_404(Contact, id=)
-
+class EditContact(View):
+    """ comment """
+    def get(self, request, slug, *args, **kwargs):
+        """ comment """
+        review = get_object_or_404(Contact, slug=slug)
+        form = ContactForm(instance=review)
 
         return render(
             request,
-            'edit_contact.html',
+            "edit_contact.html",
             {
+                "form": form,
                 "contacted": False,
-                "contact_form": ContactForm()
+
+
             },
         )
 
-    def post(self, request, id):
+    def post(self, request, slug):
         """ Post request function """
-
-        contact_form = ContactForm(data=request.POST)
+        review = get_object_or_404(Contact, slug=slug)
+        contact_form = ContactForm(data=request.POST, instance=review)
 
         if contact_form.is_valid():
             contact_form.save()
@@ -63,19 +65,16 @@ class EditContact(generic.ListView):
 
         return render(
             request,
-            'edit_contact.html',
+            'contact.html',
             {
                 "contacted": True,
-                "contact_form": ContactForm()
+                "contact_form": contact_form
             },
         )
 
 
-
-
 class ContactList(generic.ListView):
     """ ContactList view """
-
     def get(self, request, *args, **kwargs):
 
         return render(

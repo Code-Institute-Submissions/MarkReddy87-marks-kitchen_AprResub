@@ -11,15 +11,15 @@
 
                 {% if contacted %}
                 <div class="alert alert-success" role="alert">
-                    Thank you, your review is awaiting approval and will be displayed on our site soon!
+                    Thank you, your review will be displayed on our site soon!
                 </div>
+                <a class="btn btn-primary text-uppercase mt-3" href="{% url 'review' %}">Back to Reviews</a>
                 {% else %}
 
                 {% if user.is_authenticated %}
 
-                <h3>Did you have a good time? Please fill out the form below to post a review to our site for everyone
-                    to
-                    see!!</h3>
+                <h3>Did you have a good time?</h3> 
+                <p>Please fill out the form below to post a review to our site for everyone to see!!</p>
                 <div class="my-5">
                     <form id="contactForm" method="post">
                         {{ contact_form | crispy }}
