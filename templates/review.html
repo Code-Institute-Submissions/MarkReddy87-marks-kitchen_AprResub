@@ -9,7 +9,7 @@
             <div class="row">
                 {% for contact in contact_list %}
                 <div class="col-md-4">
-                    <a href="{% url 'review_detail' contact.id %}" class="contact-link">
+                    <a href="{% url 'review_detail' contact.slug %}" class="contact-link">
                         <div class="card-mb-4">
                             <div class="card-body">
                                 <div>

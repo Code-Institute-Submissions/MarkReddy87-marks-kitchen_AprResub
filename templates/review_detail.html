@@ -1,31 +1,30 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-8">
             <div class="card-m-4">
                 <div class="card-body">
                     <div>
-                        {% if "placeholder" in contact.image.url %}
+                        {% if "placeholder" in review.image.url %}
                         <img class="card-image-top img-fluid rounded"
                             src="https://cdn.pixabay.com/photo/2020/09/09/07/20/review-5556833_1280.jpg">
                         {% else %}
-                        <img class="card-image-top img-fluid rounded" src="{{ contact.image.url }}">
+                        <img class="card-image-top img-fluid rounded" src="{{ review.image.url }}">
                         {% endif %}
                         <div>
-                            <p class="author">Author: {{ contact.name }}</p>
+                            <p class="author">Author: {{ review.name }}</p>
                         </div>
                     </div>
-                    <h2 class="card-title">{{ contact.title }}</h2>
-                    <p class="card-text">{{ contact.body }}</p>
+                    <h2 class="card-title">{{ review.title }}</h2>
+                    <p class="card-text">{{ review.body }}</p>
                     <hr />
-                    <p class="card-text text-muted h6">{{ contact.created_on }}</p>
+                    <p class="card-text text-muted h6">{{ review.created_on }}</p>
                 </div>
-                {% if user.is_authenticated and user == contact.name %}
+                {% if user.is_authenticated and user == review.name %}
                 <div class="card-footer">
-                    <a class="btn btn-primary text-uppercase" href="{% url 'edit_contact' contact.id %}">Edit Review</a>
+                    <a class="btn btn-primary text-uppercase" href="{% url 'edit_contact' review.slug %}">Edit Review</a>
                     <a class="btn btn-primary text-uppercase" href="#">Delete Review</a>
                     <a class="btn btn-primary text-uppercase" href="{% url 'review' %}">Back to Reviews</a>
                 </div>

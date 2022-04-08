@@ -1,7 +1,7 @@
 """ relevant imports below """
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from django.views import generic
+from django.views import generic, View
 from .models import Contact
 from .forms import ContactForm, BookingForm
 
@@ -12,10 +12,27 @@ class ShowMenu(generic.ListView):
     queryset = HttpResponse
 
 
-class ReviewDetail(generic.DetailView):
-    """ ReviewDetail view """
+class ShowContacts(generic.ListView):
+    """ ShowContact view """
     model = Contact
-    template_name = 'review_detail.html'
+    queryset = Contact.objects.filter(approved=True).order_by('created_on')
+    template_name = 'review.html'
+    paginate_by = 6
+
+
+class ReviewDetail(View):
+    """ ReviewDetail view """
+    def get(self, request, slug, *args, **kwargs):
+        """ function to get specific review """
+        queryset = Contact.objects.filter(approved=True)
+        review = get_object_or_404(queryset, slug=slug)
+        return render(
+            request,
+            "review_detail.html",
+            {
+                "review": review
+            },
+        )
 
 
 class EditContact(generic.ListView):
@@ -54,12 +71,6 @@ class EditContact(generic.ListView):
         )
 
 
-class ShowContacts(generic.ListView):
-    """ ShowContact view """
-    model = Contact
-    queryset = Contact.objects.filter(approved=True).order_by('created_on')
-    template_name = 'review.html'
-    paginate_by = 6
 
 
 class ContactList(generic.ListView):
