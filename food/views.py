@@ -1,5 +1,5 @@
 """ relevant imports below """
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic, View
 from .models import Contact
@@ -30,15 +30,24 @@ class ReviewDetail(View):
             request,
             "review_detail.html",
             {
-                "review": review
+                "review": review,
             },
         )
 
 
+class DeleteContact(View):
+    """ Delete a Review view """
+    def get(self, slug, *args, **kwargs):
+        """ Get review to delete """
+        delete_review = get_object_or_404(Contact, slug=slug)
+        delete_review.delete()
+        return redirect("review.html")
+
+
 class EditContact(View):
-    """ comment """
+    """ EditContact View """
     def get(self, request, slug, *args, **kwargs):
-        """ comment """
+        """ Get instance of Contactform """
         review = get_object_or_404(Contact, slug=slug)
         form = ContactForm(instance=review)
 
@@ -48,8 +57,6 @@ class EditContact(View):
             {
                 "form": form,
                 "contacted": False,
-
-
             },
         )
 
