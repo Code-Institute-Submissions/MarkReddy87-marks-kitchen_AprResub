@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
 
 
 class Booking (models.Model):
@@ -36,6 +37,11 @@ class Contact (models.Model):
     image = CloudinaryField('image', default='placeholder')
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+            return super().save(*args, **kwargs)
 
     class Meta:
         """ Meta class for ordering """
