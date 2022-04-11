@@ -1,7 +1,9 @@
 """ relevant imports below """
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic, View
+from django.views.generic.edit import DeleteView
+from django.urls import reverse_lazy
 from .models import Contact
 from .forms import ContactForm, BookingForm
 
@@ -22,7 +24,7 @@ class ShowContacts(generic.ListView):
 
 class ReviewDetail(View):
     """ ReviewDetail view """
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug):
         """ function to get specific review """
         queryset = Contact.objects.filter(approved=True)
         review = get_object_or_404(queryset, slug=slug)
@@ -35,18 +37,15 @@ class ReviewDetail(View):
         )
 
 
-class DeleteContact(View):
+class DeleteContact(DeleteView):
     """ Delete a Review view """
-    def get(self, slug, *args, **kwargs):
-        """ Get review to delete """
-        delete_review = get_object_or_404(Contact, slug=slug)
-        delete_review.delete()
-        return redirect("review.html")
+    model = Contact
+    success_url = reverse_lazy('review')
 
 
 class EditContact(View):
     """ EditContact View """
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, slug, **kwargs):
         """ Get instance of Contactform """
         review = get_object_or_404(Contact, slug=slug)
         form = ContactForm(instance=review)
@@ -75,7 +74,7 @@ class EditContact(View):
             'contact.html',
             {
                 "contacted": True,
-                "contact_form": contact_form
+                "contact_form": contact_form,
             },
         )
 
