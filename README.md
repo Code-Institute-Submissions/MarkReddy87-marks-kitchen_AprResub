@@ -3,7 +3,7 @@
 [Please see my live app here!](https://marks-kitchen.herokuapp.com/)
 
 ## 1. Purpose of the project
-The purpose of this project was to design a website for a new up and coming restaurant (Mark's Kitchen) who wanted to maximise their potential reach by promoting their retaurant online so it would be visible to as many potential customers as possible. This site would also allowed a user, who is registered for an account, to post a review of their experience at the location for all site visitors to see. This site would also allow a registered user to make a booking request directly to the site owner via a form submission which would then be stored in the sites database where it would await approval. The site also gives the owner the ability to show off the restaurant's menu in all it glory as well as the ability be easily update and change the dishes / contents as they evolve over time. 
+The purpose of this project was to design a website for a new up and coming restaurant (Mark's Kitchen) who wanted to maximise their potential reach by promoting their retaurant online so it would be visible to as many potential customers as possible. This site would also allowed a user, who is registered for an account, to post a review of their experience at the location for all site visitors to see. The user also has the ability to edit and delete these revies if they wish to do so. This site also allows a registered user to make a booking request directly to the site owner via a form submission which would then be stored in the sites database where it would await approval. The site also gives the owner the ability to show off the restaurant's menu in all it glory as well as the ability be easily update and change the dishes / contents as they evolve over time. 
 
 This project was my first time developing with the Django framework and was a huge undertaking for me, grasping the basic concepts was something that didn't come easy and I still have a lot more to learn on my Django journey.
 
@@ -42,7 +42,7 @@ Any unregistered site visitor can navigate to the "see our reviews" page where t
 
 If the user is registered they can login upon returning to the site and navigate to the "make a booking" page where a form will now be unlocked which will take all the necessary details from the user to make a booking in the restaurant. 
 
-![booking form screenshot](static/assets/screenshots/booking-form.PNG)
+![booking form screenshot](static/assets/screenshots/booking-form-updated.PNG)
 
 Once the user has correctly filled out the form the data is submitted and sved to the database where it will await approval from the site admin.
 
@@ -50,11 +50,23 @@ Once the user has correctly filled out the form the data is submitted and sved t
 
 Also if the user is registered they can login and navigate to the "write a review page" where another from will now be unlocked. This form give the user the ability to leave a review of the restaurant and allows them to attach an image of their experience if they wish to do so. If no image is supplied the site will automatically attach a placeholer image for them.
 
-![contact form screenshot](static/assets/screenshots/contact-form.PNG)
+![contact form screenshot](static/assets/screenshots/contact-form-update.PNG)
 
 Once the review form is correctly filled out the user will get an alert message telling them the review is awaiting approval and when approved by the admin the users review will appear on the sites "see our reviews" page for any site visitor to see. 
 
 ![review alert screenshot](static/assets/screenshots/review-alert.PNG)
+
+When the review has been approved on the admin panel by the site owner it will appear on the "see out review's page and is a clickable link which takes you to the review detail page showing the full body of the review and if the user that is logged in matches the author of the review two extra buttons will appear giving the options to edit or delete that specific review.
+
+![review detail screenshot](static/assets/screenshots/review-detail.PNG)
+
+If the edit review button is clicked it will bring up an instance the contact form of that specific review which can be edited / updated by the user and once the save changes button is clicked the form will be saved and posted to the site.
+
+![edit contact screenshot](static/assets/screenshots/edit-contact.PNG)
+
+If the delete button is clicked the user is presented with a warning page asking them to confirm the deletion or to cancel and go back to the reviews page. This gives the user a chance to assess their decision before actually deleting the review.
+
+![confirm delete screenshot](static/assets/screenshots/confirm-delete.PNG)
 
 The site also has fully responsive footer containing all the social media links, among others, styled with icons from [Font Awsome](https://fontawesome.com/).
 
@@ -71,6 +83,8 @@ One of the main security features present in this project is the use of the Cros
 Another security feature present in this project is the use of a django super user. This is created in the development enviornment with a Username, Email and Password. We type the command "python3 manage.py createsuperuser" into the terminal within the GitHub workspace and follow the prompts to create the account. Once created this gives the user full access to the admin panel of the site allowing them to create, edit and delete data in the database.
 
 The site is designed in a way so that only registered users can access the functionality of the site when it comes to making a booking or writing a review. This was achieved by using a simple if/else statement withing the html templates and only displaying the crispy form content if the user is authenticated. If not the user is prompted to register for an account to gain full access.
+
+Another security feature implemented is only giving users the ability to edit and delete their own reviews. This was achieved via the newly added review detail page where the we check if the user who is logged in matches the author of the review and if so an extra set of buttons is displayed below the review itself allowing editing and deletion of that review.
 
 
 ## 4. Future Features
@@ -125,6 +139,8 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    Another bug that came up was when registering for an account. Once the new account details had been entered and the form was submitted the site gave an internal server error and did not redirect the user back to the home page. To ammend this I added two variables into settings.py which were EMAIL_BACKEND and ACCOUNT_EMAIL_VERIFICATION. After applying both of these the function thankfully worked as intended.
 
    Another bug I had to tackle was only allowing registered users who were logged in to have access to the sites forms. After reviewing the relevant course content I was able to insert and if/else clause within the html template with an accompanying message prompting the user to sign in / register to gain full access to the site capabilities.
+
+   There was also an issue in both forms where if there is multiple registered user they would all appear in the dropdown user_name fields. This could be considered a breach of defensive design. To combat this the name / user name fields were removed from both forms and within both respective post methods in views.py, before the form is saved, the user name is pulled from the current logged in user and attached to either the booking or the contact.
 
    ### 8.3 supported screens and browsers
 
