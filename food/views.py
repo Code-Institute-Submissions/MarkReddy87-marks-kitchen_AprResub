@@ -45,7 +45,7 @@ class DeleteContact(DeleteView):
 
 class EditContact(View):
     """ EditContact View """
-    def get(self, request, slug, **kwargs):
+    def get(self, request, slug):
         """ Get instance of Contactform """
         review = get_object_or_404(Contact, slug=slug)
         form = ContactForm(instance=review)
@@ -115,7 +115,6 @@ class ContactList(generic.ListView):
 
 class BookingList(generic.ListView):
     """ BookingList view """
-
     def get(self, request, *args, **kwargs):
 
         return render(
@@ -129,7 +128,6 @@ class BookingList(generic.ListView):
 
     def post(self, request):
         """ Post request function """
-
         booking_form = BookingForm(data=request.POST)
 
         if booking_form.is_valid():

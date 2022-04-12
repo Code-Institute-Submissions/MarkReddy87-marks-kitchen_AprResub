@@ -1,8 +1,9 @@
 """ Relevant imports below """
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
+
+from cloudinary.models import CloudinaryField
 
 
 class Booking (models.Model):
@@ -21,9 +22,6 @@ class Booking (models.Model):
     class Meta:
         """ Meta class for ordering """
         ordering = ['-created_on']
-
-    def __str__(self):
-        return self.party_name
 
 
 class Contact (models.Model):
@@ -46,6 +44,3 @@ class Contact (models.Model):
     class Meta:
         """ Meta class for ordering """
         ordering = ['-created_on']
-
-    def __str__(self):
-        return self.title
