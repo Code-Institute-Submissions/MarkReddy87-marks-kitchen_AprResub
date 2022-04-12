@@ -4,7 +4,7 @@
 <div class="container">
     <form method="post">
         {% csrf_token %}
-        <p>Are you sure you want to delete "{{ contact.slug }}"?</p>
+        <p>Are you sure you want to delete the review titled - "{{ contact.title }}"?</p>
         <input class="btn btn-primary text-uppercase" type="submit" value="Confirm">
         <a class="btn btn-primary text-uppercase" href="{% url 'review' %}">Cancel</a>
     </form>
