@@ -98,6 +98,7 @@ class ContactList(generic.ListView):
         contact_form = ContactForm(data=request.POST)
 
         if contact_form.is_valid():
+            contact_form.instance.name = request.user
             contact_form.save()
         else:
             contact_form = ContactForm()
@@ -115,7 +116,7 @@ class ContactList(generic.ListView):
 class BookingList(generic.ListView):
     """ BookingList view """
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
 
         return render(
             request,
@@ -132,6 +133,7 @@ class BookingList(generic.ListView):
         booking_form = BookingForm(data=request.POST)
 
         if booking_form.is_valid():
+            booking_form.instance.user_name = request.user
             booking_form.save()
         else:
             booking_form = BookingForm()

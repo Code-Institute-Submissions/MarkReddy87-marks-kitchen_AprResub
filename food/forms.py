@@ -8,7 +8,7 @@ class ContactForm(forms.ModelForm):
     class Meta:
         """ meta class for contact form """
         model = Contact
-        fields = ('title', 'name', 'email', 'body', 'image',)
+        fields = ('title', 'email', 'body', 'image',)
 
 
 class BookingForm(forms.ModelForm):
@@ -16,5 +16,5 @@ class BookingForm(forms.ModelForm):
     class Meta:
         """ meta class for booking form """
         model = Booking
-        fields = ('party_name', 'user_name', 'booking_date', 'booking_time',
+        fields = ('party_name', 'booking_date', 'booking_time',
                   'num_of_guests', 'email', 'phone',)
