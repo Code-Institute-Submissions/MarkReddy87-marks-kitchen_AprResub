@@ -150,7 +150,6 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    6. Also with the inclusion of the slugfield I had to add the ability for the admin to auto generate a slug from the title of the review which easily done in the admin.py file but this presented a problem when adding a review from the form on site itself. As no slug was auto generated from this version of the form when trying to access the reviews page with a user generated review present the site gave a NoReverseMatch error. It took me a long time to figure out what was causing this but after seeing there was no slug present for the review in the admin panel I understoof the issue. The solution to this was to add a save function under the Contact model which "slugified" the title of a user review and attached it to the Contact model before is was saved to the database thus solving the issue.
 
 
-
    ### 8.3 supported screens and browsers
 
    The site was developed and tested with the Goggle Chrome browser.

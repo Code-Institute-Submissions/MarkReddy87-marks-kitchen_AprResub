@@ -21,7 +21,7 @@
                 <h3>Did you have a good time?</h3> 
                 <p>Please fill out the form below to post a review to our site for everyone to see!!</p>
                 <div class="my-5">
-                    <form id="contactForm" method="post">
+                    <form id="contactForm" method="post" enctype="multipart/form-data">
                         {{ contact_form | crispy }}
                         {% csrf_token %}
                         <!-- Submit Button-->
