@@ -62,7 +62,8 @@ class EditContact(View):
     def post(self, request, slug):
         """ Post request function """
         review = get_object_or_404(Contact, slug=slug)
-        contact_form = ContactForm(data=request.POST, instance=review)
+        contact_form = ContactForm(request.POST, request.FILES,
+                                   instance=review)
 
         if contact_form.is_valid():
             contact_form.save()
@@ -95,7 +96,7 @@ class ContactList(generic.ListView):
     def post(self, request):
         """ Post request function """
 
-        contact_form = ContactForm(data=request.POST)
+        contact_form = ContactForm(request.POST, request.FILES)
 
         if contact_form.is_valid():
             contact_form.instance.name = request.user
