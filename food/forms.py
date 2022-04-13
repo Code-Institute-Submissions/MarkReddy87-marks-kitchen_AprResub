@@ -11,6 +11,16 @@ class ContactForm(forms.ModelForm):
         fields = ('title', 'email', 'body', 'image',)
 
 
+class DateInput(forms.DateInput):
+    """ Custom class for date widget """
+    input_type = 'date'
+
+
+class TimeInput(forms.TimeInput):
+    """ Custom class for time widget """
+    input_type = 'time'
+
+
 class BookingForm(forms.ModelForm):
     """ Registering fields for Booking form """
     class Meta:
@@ -18,3 +28,7 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ('party_name', 'booking_date', 'booking_time',
                   'num_of_guests', 'email', 'phone',)
+        widgets = {
+            'booking_date': DateInput(),
+            'booking_time': TimeInput()
+        }
