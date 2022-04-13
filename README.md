@@ -126,6 +126,9 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    Once the project was fully deployed to Heroku I chose to validate the HTML files by entering the URL's into the site. Upon navigating to the W3C validator site I copied the deployed Heroku URL and pasted it into the address bar and clicked the check button. I repeated this process for all the URL's within the deployed app and addressed all the errors that came up one by one if there was any. Once I thought all the errors were addressed I redeployed the site to Heroku after a git commit and push in the GitPod workspace then I ran all the URL's through the validator one more time to ensure I had fixed everything.
 
    * CSS - No errors were returned when the CSS code was passed through the official [Jigsaw Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+   For the CSS validation I chose to check this by direct input as there was only onr file to check. Upon navigating to the W3C css validator linked above, I ensured the "by direct input" tab was selected. Then in my workspace I selected and copied the entire contents of the style.css file and pasted it into the text area on the W3C site then clicked the check button. Thankfully after the first check there were no errors found.
+
    * Python - No errors were returned when the Python code was passed through the [Python Syntax Chacker](https://extendsclass.com/python-tester.html)
 
    Extensive manual testing was done on the finished site to make sure that the data entered into the forms was save correctly to the database and when the data had been approved by the site admin it was then properly displayed on the relevant pages within the site. 
