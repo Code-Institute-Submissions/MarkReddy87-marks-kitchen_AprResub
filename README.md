@@ -26,55 +26,55 @@ As a site user I can make a booking for one or more people so that I can reserve
 
 This project is a multi-page Django app. The home page has an eye catching feature image containing a welcome message as well as a sleek responsive navagation bar which is consistant across all pages. The landing page also contains the restaurants full menu for all site visitors to see.
 
-![home page screenshot](static/assets/screenshots/homepage-navbar.PNG)
+![home page screenshot](docs/screenshots/homepage-navbar.PNG)
 
 Any site visitor is given the opportunity to register for an account which unlocks further features within the site.
 
-![register form screenshot](static/assets/screenshots/register-form.PNG)
+![register form screenshot](docs/screenshots/register-form.PNG)
 
 A returning user who is already registered with can navigate to the login page and once the form is completed all the features of the site will be unlocked. 
 
-![login screenshot](static/assets/screenshots/login-form.PNG)
+![login screenshot](docs/screenshots/login-form.PNG)
 
 Any unregistered site visitor can navigate to the "see our reviews" page where there is a collection of reviews which have been left by registers users who have had an experience's with Mark's kitchen in the past. 
 
-![reviews page screenshot](static/assets/screenshots/review-page.PNG)
+![reviews page screenshot](docs/screenshots/review-page.PNG)
 
 If the user is registered they can login upon returning to the site and navigate to the "make a booking" page where a form will now be unlocked which will take all the necessary details from the user to make a booking in the restaurant. 
 
-![booking form screenshot](static/assets/screenshots/booking-form-updated.PNG)
+![booking form screenshot](docs/screenshots/booking-form-updated.PNG)
 
 Once the user has correctly filled out the form the data is submitted and sved to the database where it will await approval from the site admin.
 
-![booking alert screenshot](static/assets/screenshots/booking-alert.PNG)
+![booking alert screenshot](docs/screenshots/booking-alert.PNG)
 
 Also if the user is registered they can login and navigate to the "write a review page" where another from will now be unlocked. This form give the user the ability to leave a review of the restaurant and allows them to attach an image of their experience if they wish to do so. If no image is supplied the site will automatically attach a placeholer image for them.
 
-![contact form screenshot](static/assets/screenshots/contact-form-update.PNG)
+![contact form screenshot](docs/screenshots/contact-form-update.PNG)
 
 Once the review form is correctly filled out the user will get an alert message telling them the review is awaiting approval and when approved by the admin the users review will appear on the sites "see our reviews" page for any site visitor to see. 
 
-![review alert screenshot](static/assets/screenshots/review-alert.PNG)
+![review alert screenshot](docs/screenshots/review-alert.PNG)
 
 When the review has been approved on the admin panel by the site owner it will appear on the "see out review's page and is a clickable link which takes you to the review detail page showing the full body of the review and if the user that is logged in matches the author of the review two extra buttons will appear giving the options to edit or delete that specific review.
 
-![review detail screenshot](static/assets/screenshots/review-detail.PNG)
+![review detail screenshot](docs/screenshots/review-detail.PNG)
 
 If the edit review button is clicked it will bring up an instance the contact form of that specific review which can be edited / updated by the user and once the save changes button is clicked the form will be saved and posted to the site.
 
-![edit contact screenshot](static/assets/screenshots/edit-contact.PNG)
+![edit contact screenshot](docs/screenshots/edit-contact.PNG)
 
 If the delete button is clicked the user is presented with a warning page asking them to confirm the deletion or to cancel and go back to the reviews page. This gives the user a chance to assess their decision before actually deleting the review.
 
-![confirm delete screenshot](static/assets/screenshots/confirm-delete.PNG)
+![confirm delete screenshot](docs/screenshots/confirm-delete.PNG)
 
 The site also has fully responsive footer containing all the social media links, among others, styled with icons from [Font Awsome](https://fontawesome.com/).
 
-![footer screenshot](static/assets/screenshots/footer.PNG)
+![footer screenshot](docs/screenshots/footer.PNG)
 
 Finally the user can sign out of their account from the navigation bar if they wish to do so and will be prompted with a message asking them to confirm. Once confirmed the user is then redirected back to the home page.
 
-![sign out screenshot](static/assets/screenshots/signout.PNG)
+![sign out screenshot](docs/screenshots/signout.PNG)
 
 ### 3.2 Security Features
 
@@ -104,7 +104,7 @@ I chose to use simple and contrasting colors which I think helps the sites reada
 
 ## 6. Wireframes
 
-[Link to Project Wireframes](https://balsamiq.cloud/s1wvfc3/p8hftjs/r1F97).
+[Link to Project Wireframes](https://balsamiq.cloud/s1wvfc3/p8hftjs).
 
 I found using Balsamiq wireframes very beneficial. This is a great tool to use during the project inception. It allows the user to plan out every page you want to create with great detail and with the variety elements to choose from I feel it can inspire you to come up with new ideas. After creating my wireframes I found myself using them as a constant reference during the coding process.
 
