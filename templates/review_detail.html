@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div>
                         {% if "placeholder" in review.image.url %}
-                        <img class="card-image-top img-fluid rounded"
+                        <img class="card-image-top img-fluid rounded" alt="review image"
                             src="https://cdn.pixabay.com/photo/2020/09/09/07/20/review-5556833_1280.jpg">
                         {% else %}
                         <img class="card-image-top img-fluid rounded" src="{{ review.image.url }}">
