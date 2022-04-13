@@ -20,6 +20,14 @@ As a site user I can log into my account so that I can save my details.
 As a site user I can contact the restaurant so that I can submit a review or ask a question.
 As a site user I can make a booking for one or more people so that I can reserve a table for a specific date and time to have a meal.
 
+Upon finding out I had to resubmit my project I examined all the feedback given to me by the assor and created further user stories to address all the issues that had been brought up. I also implemented the use use of labels on the new user stories to seperate each new issue into easily seen catagories. I also ensured to close each issue when completed. Below I have listed all the new issues that were created:
+
+As a site owner I must properly validate all python and HTML files so that all code is PEP8 complient (label - documentation)
+As a site user I can add a personal image to a review so that I can enhance my review for the community (label - bug)
+As a site user I must not be able to use any username in the data base as the author for my review so that I can protect my and other users reputation / data (label - bug)
+As a site user I can delete my review so that remove it from the site if I decide to do so (label - enhancement)
+As a site user I can edit or delete a review so that fix a mistake or remove a review at my discression (label - enhancement) 
+
 ## 3. Features
 
 ### 3.1 Main Site Features
