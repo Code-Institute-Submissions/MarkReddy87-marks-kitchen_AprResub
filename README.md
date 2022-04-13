@@ -121,7 +121,10 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
 
    ### 8.1 code validation
 
-   * HTML - No fatal erros were returned when HTML code was passed through the official [W£C Validator](https://validator.w3.org/#validate_by_input)
+   * HTML - No fatal erros were returned when HTML code was passed through the official [W3C Validator](https://validator.w3.org/)
+
+   Once the project was fully deployed to Heroku I chose to validate the HTML files by entering the URL's into the site. Upon navigating to the W3C validator site I copied the deployed Heroku URL and pasted it into the address bar and clicked the check button. I repeated this process for all the URL's within the deployed app and addressed all the errors that came up one by one if there was any. Once I thought all the errors were addressed I redeployed the site to Heroku after a git commit and push in the GitPod workspace then I ran all the URL's through the validator one more time to ensure I had fixed everything.
+
    * CSS - No errors were returned when the CSS code was passed through the official [Jigsaw Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
    * Python - No errors were returned when the Python code was passed through the [Python Syntax Chacker](https://extendsclass.com/python-tester.html)
 
