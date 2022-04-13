@@ -32,8 +32,7 @@ class Contact (models.Model):
                              related_name="contact_from")
     email = models.EmailField()
     body = models.TextField()
-    image = models.ImageField(upload_to='images/', blank=True,
-                              default='placeholder')
+    image = CloudinaryField('images/', blank=True, default='placeholder')
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
