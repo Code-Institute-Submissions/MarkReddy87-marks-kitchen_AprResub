@@ -131,7 +131,16 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
 
    * Python - No errors were returned when the Python code was passed through the [Python Syntax Chacker](https://extendsclass.com/python-tester.html)
 
-   Extensive manual testing was done on the finished site to make sure that the data entered into the forms was save correctly to the database and when the data had been approved by the site admin it was then properly displayed on the relevant pages within the site. 
+   To test the python files in this project I used a similar process to the css file. First I navigated to the ExtendClass Python Syntax Checker which is linked above. Then I proceeded to individually copy the entire contents of each .py file I had created and paste the contents into the text area on the ExtendsClass site and click the check python syntax button and for all files I received the "No syntax errors detected :)" notification.
+
+   * Flake8 Errors
+
+   The final piece of code validation I used was in the workspace terminal itself. I typed the command "python3 -m flake8" into the terminal which outputted all the problems within all the files in the workspace and I was able to go through them one by one by holding Ctrl and clicking the link provided which brought me to the exact line of code that was effected. I ignored any warnings from files that were automaticall generated such a migrations so as not to mess with the efficiency of these files and suck to solving any linting issues in files I had created myself. I had to remove some files that were not being used to solve some of the problems and most of the other issues were "line too long" problems or unused import errors. After solving all the relevant issues I was left with one from settings.py on line 17 which was an unused import error, this matched the sample project directly so I chose not to remove it.
+
+
+   ### 8.2 Manual Testing
+
+   Extensive manual testing was done on the finished site to make sure all features worked and that the data entered into the forms was saved correctly to the database and when the data had been approved by the site admin it was then properly displayed on the relevant pages within the site aswell as edit / delete functionality
    
    1. Firstly once the app was successfully deployed to heroku I began the resistration process and set up a new account by clicking the register button in the top left of the screen and entering the required information in the form shown on screen. Once registered the user is then redirected to the home page as expected.
    2. Now that I was logged in as a registered user I had full access to all the sites capabilities and would be able to leave a review and make a booking request. Upon clicking the write a review link at the top of the page I could access the contact form where I could enter the relevant details and add an accompanying picture if I chose to do so. To ensure all the code was working as expected I created two reviews, one with a picture attached and one without. I then logged into the sites admin where I could access the two recent reviews and approve each of them. Then back on the site I could navigate to the "see our reviews" page where the two reviews were now shown and I was able to see that the placeholder image was in fact working and present.
@@ -141,7 +150,8 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    6. Now I could test the delete function. From the review detail page of one of my test reviews I clicked the delete button which, as expected, brought me to the contact_confirm_delete page where I was given a chance to change my mind before confirming the delete. Once confirming I was redirected back to the reviews page where I could see the review was no longer there confirming the delete functoin worked as intended.
    7. Next I tested the booking form. Navigating to the "make a booking" tab shows the booking form where the logged in user can now fill out the required information to make a booking request. While filling this out I noticed a issue with the username field where all the registered users appeared in the dropdown menu and could be accessed by any logged in user. This issue needed to be addressed as this is considered a breach of defensive design. After this issue was removed a user could then submit the form for admin approval and once the button was clicked there were presented with a success message letting them know their form entry was a success. Now navigating to the site admin I could see that the booking had been created and as the site owner I could now approve the booking and contact the customer.
 
-   ### 8.2 fixed bugs
+
+   ### 8.3 fixed bugs
 
    1. I came across a number of bugs during the development of this site. One particular case was when I was trying to display the images attached to the user reviews. After building the bootstrap cards to contain each review the images would display too large and were not contained within the cards themselves. After reviewing the bootstrap documentation relating to images I was able to apply the correct class (img-fluid) to the appropriate div elements to solve this issue.
 
@@ -158,7 +168,7 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    7. The last bug I encountered was with the image field in the Contact form. I changed the model from a cloudinary field to an image field to try and solve an issue with Heroku not allowing the user to add images and giving a server error. It originally solved the issue within the Github workspace but not in Heroku. I reverted the model back to a Cloudinary field but left the changes I made in views.py in each post method which was to add the request.FILES attribute to the contact_form variable. These changes solved the issue and the functionality worked both in the workspace and in the Heroku app. 
 
 
-   ### 8.3 supported screens and browsers
+   ### 8.4 supported screens and browsers
 
    The site was developed and tested with the Goggle Chrome browser.
    The bootstrap theme used in this site included media queries in the CSS file which makes the site fully responsive on all screen sizes by stacking elements on smaller screen widths as well as adding a dropdown menu within the navagation bar to hold all the relevant page links.
