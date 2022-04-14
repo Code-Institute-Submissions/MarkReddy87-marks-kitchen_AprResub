@@ -206,6 +206,7 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
 ### 9.1 via gitpod
 
 This project was built entirely using [Github](https://github.com/) and [Gitpod](https://gitpod.io/).
+
 * First I navigated to [Github](https://github.com/) and signed in.
 * I then clicked the new button to create a new repository and from the template dropdown menu I could select the Code Institute template and then named the project appropriately clicked the "create repository" button.
 * Once the repo had been created I was then able to create a [Gitpod](https://gitpod.io/) workspace by clicking the green Gitpod button which then built the workspace enviornment where I was able to create and write all my files and save all my code progress using commands in the terminal such as "git add ." or "git commit -m "commit message"" or "git push"
@@ -217,16 +218,56 @@ This project was built entirely using [Github](https://github.com/) and [Gitpod]
 * Now it was time to create the Django project itself. To do this we use the command "django-admin startproject project_name ."
 * Now the the base Django project created we can create a Django app. There is no limit to the amount of Django app that can within a Django project which gives you an idea of just how powerful this framework can be. To create a new app we use the command "python3 manage.py startapp app_name".
 * Every time we install a new app we must add it to the list of installed app in the main settings.py file in the project level directory. Also every time a new app is created we have to migrate these changes to the database using the command "python3 manage.py migrate".
+* Now the basic skeleton of the project is up and running. To verify this we can run the command "python3 manage.py runserver" and click open browser which will open a new tab and you will be greeted with a Django welcome message telling you the install has wroked successfully.
 
 
 ### 9.2 via heroku
 
 This project was deployed as a Python based Django applcation on the Heroku cloud platform.
-*  Firstly a new app was created on the Heroku site and named appropriately.
-* Once the required packages were installed with the Gitpod workspace and added to the requirements.txt file I could then apply the correct settings to my Heroku app.
-* Within the setting tab three different Config Vars were required: Cloudinary for hosting images, Postgres database for hosting all site data and the Secret Key url to hide any sensitive data in my workspace.
-* The Gunicorn dyno was then added as well as the Heroku Postgres add-on.
-* Once all these steps were done the we can then head to the deploy tab and link the respective GitHub repository to the app and now the project is ready to be built and deployed from the main Github branch.
+
+* First we login to our [Heroku](https://heroku.com/) dashboard and click the new app button, name it appropriately and select the correct region before clicking the create app button.
+* Next we navigate to the resources tab where we can add a database. In the add-ons search bar we search for Postgres then we can add Heroku Postgres to our project.
+* Now we navigate to the settings tab and click on "reveal config vars". This will reveal the DATABASE_URL variable. We then copy the string in the value box so we can add it to our workspace.
+* In the Gitpod workspace we create a env.py file in the same directory as the manage.py file. This is where we will store all our secret enviornment variables for the project. These importantly will not be pubically visible because this file is included in the .gitignore file. In the env.py we now import os at the top an add the relevant variables beneath using these lines of code:
+os.environ["DATABASE_URL"] = "variable copied from heroku site"
+os.environ["SECRET_KEY"] = "secret key variable created by the user"
+os.environ["CLOUDINARY_URL"] = "cloudinary API Environment variable"
+The secret key variable is picked by the developer and can be anything you want, it is used to encrypt the session cookies of yoursite. This must also be added to the Heroku config vars using matching key and value. The cloudinary url is retrieved from your Cloudinary dashboard after creating an account on their site and must also be added to the Heroku config vars. This will connect Cloudinary to our project and let us store all our static and media files.
+* Now we need to reference our eny.py file in our settings.py file among some other imports. So we add these lines at the top of the settings file:
+   import os
+   import dj_database_url
+   if os.path.isfile('env.py'):
+      import env
+* We now must change to the secret variable to: SECRET_KEY = os.environ.get('SECRET_KEY')
+* Next we need to wire up our Postgres Database. Again in settings.py we find the database section, comment out the existing sqlite3 setting and replace it with the code below:
+DATABASES = {
+   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+* We our now using the Heroku Database as our backend but we must migrate all these changes to our new database by using the familiar "python3 manage.py migrate" command in the terminal.
+* To verify this we can navigate back to our Heroku dashboard, click on the resources tab then click on the Heroku Postgres link which will open a new tab showing all newly created row and tables in the database.
+* We must also add one more Heroku config var called DISABLE_COLLECT_STATIC set with a value of 1. This is just to get our skelton project deployed as there is no static files created yet and will be removed  before final deployment.
+* We also need to add cloudinary to our installed app in setting.py in a specific order which is outlined below:
+   'cloudinary_storage',
+   'django.contrib.staticfiles',
+   'cloudinary',
+* Now we need to tell Django to use Cloudinary to store out static and media files by adding the follow lines of code to our settings.py file just below the STATIC_URL setting:
+   STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+   MEDIA_URL = '/media/'
+   DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+* We also need to tell django where our templates will be stored. Back at the top of settings.py just under the BASE_DIR setting we add the following:
+   TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+* Next we must set our DIRS key in settings.py to: 'DIRS': [TEMPLATES_DIR],
+* Now we need to add our Heroku host name to allowed hosts in settings.py like below:
+   ALLOWED_HOSTS = ['your_heroku_app_name.herokuapp.com', 'localhost']
+* Now we need to create the three directories that are mentioned above. In top level of the files directory, we create media, static and template folders.
+* The final thing to do in our workspace before we add, commit and push all the changes to our repository is to create a Procflie (capital P). Heroku needs this file so that it knows how to run our project and all it contains is the following one line of code:
+   web: gunicorn your_django_ project_name.wsgi
+* Now we can deploy our project to Heroku. From the Heroku dashboard we navigate to the deploy tab and we click on GitHub for our deploy method. Once your account is connected we can search for the correct repository and click the connect button. Now the right repo is connected we scroll down to the bottom of the page and click on the deploy branch button which will trigger a build from the Github repo. When the build has completed successfully a button will appear that says "open app" and this will bring you to your live Heroku app and show the faliliar Django success message from earlier. 
+
+This method of early deployment is very befeficial as it gives the developer and solid platform to work form and will save a huge amount of time and stress when the project deadline approaches!
 
 ## 10. Credits
 
