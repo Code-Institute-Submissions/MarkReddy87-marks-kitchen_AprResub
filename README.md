@@ -125,6 +125,8 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
 * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
 * [PostgreSQL](https://en.wikipedia.org/wiki/PostgreSQL)
 * [Cloudinary](https://en.wikipedia.org/wiki/Cloudinary)
+* [Gunicorn](https://en.wikipedia.org/wiki/Gunicorn)
+* [Pillow](https://en.wikipedia.org/wiki/Python_Imaging_Library)
 
 ## 8. Testing
 
@@ -166,12 +168,14 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    5. Leave A Review
    Logging back in as the registered test user I again had full access to all the sites capabilities and would be able to leave a review. Upon clicking the write a review link at the top of the page I could now access the contact form where the user is asked if they had a good time and is prompted to complete the form. The user is required to fill out the title, email and body fields for the form to be valid and an accompanying picture could be chosen but this is optional. A placeholder image would be added by default if there was no image chosen by the user. To ensure all the code was working as expected I created two test reviews, one with a picture attached and one without. At this point I navigated to the "see our reviews" page and could see that both reviews were not present as expected. I then logged out of the test user account and logged back into the sites admin panel where upon navigating to the contacts tab I could see the two newly created reviews. I then approved each of them using the same procress I used to confirm a booking request. Then clicking on the visit site link I could navigate back to the "see our reviews" page where the two reviews were now shown and I was able to see that the placeholder image was in fact working and present aswell as the user uploaded image.
 
-   6. 
-   3. From here I could test access to the review detail page. I wrote the code in such a way that the entire review card was clickable which worked and brings the user to another page displaying only that specific review including the reviews body.
-   4. Once the review detail page was accessed I could tell the code for the edit and delete buttons code was working as both were rendered below the review. I furthur tested this functionality by logging out of my profile an navagating back to the review detail page a seeing that these button were no longer displayed.
-   5. To test the ability to edit a review I logged back into my profile and navigated back to the review detail page and clicked on the edit review button which rendered an instance of the contact form prefilled with the current data save on te database for that specific review as ecpected. I then proceeded to change some of the data within the form fields and clicked the save changes button. The site then displayed the familiar success message and upon navigating back to the revies page I could see that the review had indeed been updated confirming the functionality. 
-   6. Now I could test the delete function. From the review detail page of one of my test reviews I clicked the delete button which, as expected, brought me to the contact_confirm_delete page where I was given a chance to change my mind before confirming the delete. Once confirming I was redirected back to the reviews page where I could see the review was no longer there confirming the delete functoin worked as intended.
-   7. Next I tested the booking form. Navigating to the "make a booking" tab shows the booking form where the logged in user can now fill out the required information to make a booking request. While filling this out I noticed a issue with the username field where all the registered users appeared in the dropdown menu and could be accessed by any logged in user. This issue needed to be addressed as this is considered a breach of defensive design. After this issue was removed a user could then submit the form for admin approval and once the button was clicked there were presented with a success message letting them know their form entry was a success. Now navigating to the site admin I could see that the booking had been created and as the site owner I could now approve the booking and contact the customer.
+   6. Review Detail
+   Now I could test access to the review detail page. I wrote the code in such a way that the entire review card for each review was a clickable link which worked as expected and when clicked brought the user to another page displaying only that specific review including the review image, author, title, the entire review body and post date. Once the review detail page was accessed I could tell the code for the edit and delete buttons was working as both were rendered below the review because the author of the review matched the logged in user. I furthur tested this functionality by logging out of my profile an navagating back to the review detail page to see that these button were no longer displayed and only the "back to reviews" button was present.
+
+   7. Edit a Review
+   To test the ability to edit / update a review I logged back into the test profile and navigated back to the review detail page of one of the test reviews and clicked on the edit review button which rendered an instance of the contact form for that review which was prefilled with the current data saved on the database for that specific review as expected. I then proceeded to change some of the data within the form fields and clicked the save changes button. The site then displayed the familiar success message and upon navigating back to the revies page I could see that the review had indeed been updated confirming the functionality.
+
+   8. Delete a review 
+   Now it was time to test the ability to delete a review which would complete the required CRUD (Create, Read, Update, Delete) functioality of the site. From the review detail page of one of my test reviews I clicked the delete button which, as expected, brought me to the contact_confirm_delete page where I was given a chance to change my mind before confirming the delete. Once the confirm button was clicked I was redirected back to the reviews page where I could see the review was no longer there confirming the delete functoin worked as intended.
 
 
    ### 8.3 fixed bugs
@@ -202,8 +206,18 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
 ### 9.1 via gitpod
 
 This project was built entirely using [Github](https://github.com/) and [Gitpod](https://gitpod.io/).
-* First I created a repository in my GitHub account and named it appropriately.
-* Then I was able to create a GitPod workspace which included the Code Institute template where I was able to write and save all my code progress.
+* First I navigated to [Github](https://github.com/) and signed in.
+* I then clicked the new button to create a new repository and from the template dropdown menu I could select the Code Institute template and then named the project appropriately clicked the "create repository" button.
+* Once the repo had been created I was then able to create a [Gitpod](https://gitpod.io/) workspace by clicking the green Gitpod button which then built the workspace enviornment where I was able to create and write all my files and save all my code progress using commands in the terminal such as "git add ." or "git commit -m "commit message"" or "git push"
+* The next step was to install django itself all the libraries I needed for my project.
+* In the workspace terminal I typed the command "pip3 install django gunicorn" to install the Django framework and The Gunicorn server that I used to run the Django project on Heroku.
+* Now I needed to install two supporting libraries. The first being PostgreSQL and the other being Psycopg2. I did this using the command "pip3 install dj_database_url psycopg2"
+* Next I installed the libraries to run Cloudinary which would host all the sites images. The command for this was "pip3 install dj3-couldinary-storage". I also inastalled the pillow library to accompany the cloudinary library using "pip3 install pillow".
+* Now to ensure all these libraries were stayed attached to the workspace I created a requirements.txt file to save them using the command "pip3 freeze --local > requirements.txt"
+* Now it was time to create the Django project itself. To do this we use the command "django-admin startproject project_name ."
+* Now the the base Django project created we can create a Django app. There is no limit to the amount of Django app that can within a Django project which gives you an idea of just how powerful this framework can be. To create a new app we use the command "python3 manage.py startapp app_name".
+* Every time we install a new app we must add it to the list of installed app in the main settings.py file in the project level directory. Also every time a new app is created we have to migrate these changes to the database using the command "python3 manage.py migrate".
+
 
 ### 9.2 via heroku
 
