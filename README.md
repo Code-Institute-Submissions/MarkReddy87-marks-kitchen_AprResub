@@ -312,3 +312,12 @@ This method of early deployment is very befeficial as it gives the developer and
 * [Pixabay](https://pixabay.com/) for site inmages
 
 <p align="right">(<a href="#top">Back to Top</a>)</p>
+
+
+## 11. Data Schema
+
+Please see the sites Data Schema image below.
+
+![Data Schema Image](docs/data_schema/data_schema.png)
+
+<p align="right">(<a href="#top">Back to Top</a>)</p>
