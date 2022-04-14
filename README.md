@@ -1,11 +1,15 @@
+<div id="top"></div>
+
 # Mark's Kitchen - A True Culinary Experience
 
 [Please see my live app here!](https://marks-kitchen.herokuapp.com/)
+
 
 ## 1. Purpose of the project
 The purpose of this project was to design a website for a new up and coming restaurant (Mark's Kitchen) who wanted to maximise their potential reach by promoting their retaurant online so it would be visible to as many potential customers as possible. This site would also allowed a user, who is registered for an account, to post a review of their experience at the location for all site visitors to see. The user also has the ability to edit and delete these revies if they wish to do so. This site also allows a registered user to make a booking request directly to the site owner via a form submission which would then be stored in the sites database where it would await approval. The site also gives the owner the ability to show off the restaurant's menu in all it glory as well as the ability be easily update and change the dishes / contents as they evolve over time. 
 
 This project was my first time developing with the Django framework and was a huge undertaking for me, grasping the basic concepts was something that didn't come easy and I still have a lot more to learn on my Django journey.
+
 
 ## 2. User stories
 
@@ -26,7 +30,10 @@ As a site owner I must properly validate all python and HTML files so that all c
 As a site user I can add a personal image to a review so that I can enhance my review for the community (label - bug)
 As a site user I must not be able to use any username in the data base as the author for my review so that I can protect my and other users reputation / data (label - bug)
 As a site user I can delete my review so that remove it from the site if I decide to do so (label - enhancement)
-As a site user I can edit or delete a review so that fix a mistake or remove a review at my discression (label - enhancement) 
+As a site user I can edit or delete a review so that fix a mistake or remove a review at my discression (label - enhancement)
+
+<p align="right">(<a href="#top">Back to Top</a>)</p>
+
 
 ## 3. Features
 
@@ -94,6 +101,8 @@ The site is designed in a way so that only registered users can access the funct
 
 Another security feature implemented is only giving users the ability to edit and delete their own reviews. This was achieved via the newly added review detail page where the we check if the user who is logged in matches the author of the review and if so an extra set of buttons is displayed below the review itself allowing editing and deletion of that review.
 
+<p align="right">(<a href="#top">Back to Top</a>)</p>
+
 
 ## 4. Future Features
 
@@ -103,6 +112,8 @@ I would start with an interactive gallery page which contained up to date images
 
 Another feature I would like to add would be a page consisting of a payment system where a user could purchase a voucher for the restaurant which would be automatically sent to their email address and could be used upon arrival. 
 
+<p align="right">(<a href="#top">Back to Top</a>)</p>
+
 
 ## 5. Typography and color scheme
 
@@ -110,11 +121,17 @@ For this site I chose to use a bootstrap theme called "clean blog" which was dow
 
 I chose to use simple and contrasting colors which I think helps the sites readability and promotes a positive user response. The two [Google Fonts](https://fonts.google.com/) I used which I thought paired well together were Lato and Open Sans.
 
+<p align="right">(<a href="#top">Back to Top</a>)</p>
+
+
 ## 6. Wireframes
 
 [Link to Project Wireframes](https://balsamiq.cloud/s1wvfc3/p8hftjs).
 
 I found using Balsamiq wireframes very beneficial. This is a great tool to use during the project inception. It allows the user to plan out every page you want to create with great detail and with the variety elements to choose from I feel it can inspire you to come up with new ideas. After creating my wireframes I found myself using them as a constant reference during the coding process.
+
+<p align="right">(<a href="#top">Back to Top</a>)</p>
+
 
 ## 7. Technology
 
@@ -127,6 +144,9 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
 * [Cloudinary](https://en.wikipedia.org/wiki/Cloudinary)
 * [Gunicorn](https://en.wikipedia.org/wiki/Gunicorn)
 * [Pillow](https://en.wikipedia.org/wiki/Python_Imaging_Library)
+
+<p align="right">(<a href="#top">Back to Top</a>)</p>
+
 
 ## 8. Testing
 
@@ -177,6 +197,7 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    8. Delete a review 
    Now it was time to test the ability to delete a review which would complete the required CRUD (Create, Read, Update, Delete) functioality of the site. From the review detail page of one of my test reviews I clicked the delete button which, as expected, brought me to the contact_confirm_delete page where I was given a chance to change my mind before confirming the delete. Once the confirm button was clicked I was redirected back to the reviews page where I could see the review was no longer there confirming the delete functoin worked as intended.
 
+   <p align="right">(<a href="#top">Back to Top</a>)</p>
 
    ### 8.3 fixed bugs
 
@@ -199,6 +220,8 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
 
    The site was developed and tested with the Goggle Chrome browser.
    The bootstrap theme used in this site included media queries in the CSS file which makes the site fully responsive on all screen sizes by stacking elements on smaller screen widths as well as adding a dropdown menu within the navagation bar to hold all the relevant page links.
+
+   <p align="right">(<a href="#top">Back to Top</a>)</p>
 
 
 ## 9. Deployment
@@ -269,6 +292,9 @@ DATABASES = {
 
 This method of early deployment is very befeficial as it gives the developer and solid platform to work form and will save a huge amount of time and stress when the project deadline approaches!
 
+<p align="right">(<a href="#top">Back to Top</a>)</p>
+
+
 ## 10. Credits
 
 * [Code Institute](https://codeinstitute.net/) for related course materail, tutor assistance and mentoring sessions.
@@ -284,3 +310,5 @@ This method of early deployment is very befeficial as it gives the developer and
 * [Adobe Color](https://color.adobe.com/create/color-wheel) for picking colors for the site
 * [Java T Point](https://www.javatpoint.com/) for code tutorials
 * [Pixabay](https://pixabay.com/) for site inmages
+
+<p align="right">(<a href="#top">Back to Top</a>)</p>
