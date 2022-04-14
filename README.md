@@ -174,27 +174,35 @@ I found using Balsamiq wireframes very beneficial. This is a great tool to use d
    Extensive manual testing was done on the finished site to make sure all features worked and that the data entered into the forms was saved correctly to the database and when the data had been approved by the site admin it was then properly displayed on the relevant pages within the site aswell as edit / delete functionality. When the site was fully deployed on Heroku I manually tested all the sites features to ensure the final product worked how I expected it to. I have detailed all the steps taken below.
 
    1. Link Check / Spell Check
+   
    After after completing an initial spell check on all pages espically on the menu I then check that all links in the footer of the page worked correctly by clicking them all to see if they all opened in a new tab and navigated to the correct page which they did. At this point I also checked all the navigation links in and the home button at the top of the page and they all worked correctly.
 
    2. Registration 
+
    To test the registration process I first ensured I was logged out which was evident by presence of the login and register buttons on the nave bar. I clicked the register button which brings the user to the register form. To test the form validation functionality I entered information which I knew would fail validation by not including an "@" symbol in the email field and a common numeric sequence as the password. Upon trying to click the sign up button I was shown the validation errors and prompted to make the relevant change to the form. I then entered valid information to the form and clicked sign up button and now the form validation succeeded and the user is redirected to the home page. The user is now logged in, this is evident by the presence of the logout button in the navbar.
    
    3. Logout / Login
+
    Now that the user is logged in I attempted to logout by clicking the logout button in the top right of the screen. When clicked the user is brought to a page asking them to confirm if they want to logout and clicking the sign out confirms the functionality by the presence of the login and register button in the top left of the screen. I then checked if a logged out user could access the "make a booking" page or the "write a review" page. When either of tese nav links are clicked by a logged out user they are shown a message asking them to register or login before they can access either functionality. I then clicked the login button which as expected brings the user to the sign in form and when the user enters their correct credentials they are brought back to the home page and now have full access to the site again.
 
    4. Make a booking 
+
    As a registered and logged in user I could navigate to the "make a booking" page which now displayed the booking form. We can see from presence of the "*" beside each field name that the user is required to fill out all fields the sucessfully submit a booking request. If a field is left blank and the send button is clicked the user is prompted to fill out that particular field. The booking date and booking time fields have convenient buttons within the fields allowing the user to easily choose a date and time for their booking and work quite nicely. Once valid information is entered and the send button is clicked the user is shown a success message thanking them and letting them know their booking is awaiting approval. At this point I signed out of the test user account and navigated to the admin panel by adding /admin to the end of the home url in the addressbar. Once logged in with the superuser credentials I navagated to the bookings tab and could see that the new booking had been created an saved to the database. I could also see that the booking was not approved by the presence of the red circle withan x in it under the approved column. I then checked the ability to approve a booking by clicking the checkbox of that review and clicking the dropdown arrow of the actions box and selecting "approv booking" I then clicked the "go" button to complete this action. The admin panel the reloaded and the red circle changed to a green one and the booking was approved and then in theory the user would be contacted to let them know the booking had been confirmed.
 
    5. Leave A Review
+
    Logging back in as the registered test user I again had full access to all the sites capabilities and would be able to leave a review. Upon clicking the write a review link at the top of the page I could now access the contact form where the user is asked if they had a good time and is prompted to complete the form. The user is required to fill out the title, email and body fields for the form to be valid and an accompanying picture could be chosen but this is optional. A placeholder image would be added by default if there was no image chosen by the user. To ensure all the code was working as expected I created two test reviews, one with a picture attached and one without. At this point I navigated to the "see our reviews" page and could see that both reviews were not present as expected. I then logged out of the test user account and logged back into the sites admin panel where upon navigating to the contacts tab I could see the two newly created reviews. I then approved each of them using the same procress I used to confirm a booking request. Then clicking on the visit site link I could navigate back to the "see our reviews" page where the two reviews were now shown and I was able to see that the placeholder image was in fact working and present aswell as the user uploaded image.
 
    6. Review Detail
+
    Now I could test access to the review detail page. I wrote the code in such a way that the entire review card for each review was a clickable link which worked as expected and when clicked brought the user to another page displaying only that specific review including the review image, author, title, the entire review body and post date. Once the review detail page was accessed I could tell the code for the edit and delete buttons was working as both were rendered below the review because the author of the review matched the logged in user. I furthur tested this functionality by logging out of my profile an navagating back to the review detail page to see that these button were no longer displayed and only the "back to reviews" button was present.
 
    7. Edit a Review
+
    To test the ability to edit / update a review I logged back into the test profile and navigated back to the review detail page of one of the test reviews and clicked on the edit review button which rendered an instance of the contact form for that review which was prefilled with the current data saved on the database for that specific review as expected. I then proceeded to change some of the data within the form fields and clicked the save changes button. The site then displayed the familiar success message and upon navigating back to the revies page I could see that the review had indeed been updated confirming the functionality.
 
-   8. Delete a review 
+   8. Delete a review
+
    Now it was time to test the ability to delete a review which would complete the required CRUD (Create, Read, Update, Delete) functioality of the site. From the review detail page of one of my test reviews I clicked the delete button which, as expected, brought me to the contact_confirm_delete page where I was given a chance to change my mind before confirming the delete. Once the confirm button was clicked I was redirected back to the reviews page where I could see the review was no longer there confirming the delete functoin worked as intended.
 
    <p align="right">(<a href="#top">Back to Top</a>)</p>
@@ -309,7 +317,7 @@ This method of early deployment is very befeficial as it gives the developer and
 * [Google Fonts](https://fonts.google.com/) for the fonts used across the site.
 * [Adobe Color](https://color.adobe.com/create/color-wheel) for picking colors for the site
 * [Java T Point](https://www.javatpoint.com/) for code tutorials
-* [Pixabay](https://pixabay.com/) for site inmages
+* [Pixabay](https://pixabay.com/) for site images
 
 <p align="right">(<a href="#top">Back to Top</a>)</p>
 
